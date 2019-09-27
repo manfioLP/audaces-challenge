@@ -48,6 +48,10 @@ export class MovieListComponent implements OnInit {
     this.selectedMovie = movie
   }
 
+  filterMovie(filter: string) {
+    this.moviesTable.filter = filter.trim()
+  }
+
   ngOnInit() {
     this.getMovies()
     //this.show = false

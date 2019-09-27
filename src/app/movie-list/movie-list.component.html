@@ -3,6 +3,11 @@
     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
     <div>
         <!--TODO: addfilters -->
+        <div>
+            <mat-form-field>
+                <input matInput (keyup)="filterMovie($event.target.value)" placeholder="Buscar">
+            </mat-form-field>
+        </div>
 
         <!--TODO: add new movie -->
 
