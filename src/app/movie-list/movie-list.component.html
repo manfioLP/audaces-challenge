@@ -1,13 +1,44 @@
 <div>
     <h2>My Movies</h2>
     <ul>
-        <li *ngFor="let movie of movies"
-            (click)="onSelect(movie)" [class.selected]="movie === selectedMovie">
+        <li *ngFor="let movie of movies">
                 <a routerLink="/detail/{{movie.episode_id}}">
                     <span class="badge">{{movie.title}} - {{movie.director}}</span>
                 </a>
         </li>
     </ul>
+</div>
+
+<div>
+    <!-- TODO: add loading -->
+    <div *ngIf="userLoggedIn && movieList">
+        <!--TODO: addfilters -->
+
+        <!--TODO: add new movie -->
+
+        <table mat-table [dataSource]="movieList">
+            
+            <ng-container matColumnDef="title">
+                <th math-header-cell *matHeaderCellDef> Nome</th>
+                <td mat-cell *matCellDef="let element"> {{element.title}}</td>
+            </ng-container>
+            
+            <ng-container matColumnDef="producer">
+                <th math-header-cell *matHeaderCellDef> Nome</th>
+                <td mat-cell *matCellDef="let element"> {{element.producer}}</td>
+            </ng-container>
+            
+            <ng-container matColumnDef="director">
+                <th math-header-cell *matHeaderCellDef> Nome</th>
+                <td mat-cell *matCellDef="let element"> {{element.director}}</td>
+            </ng-container>
+            
+            <ng-container matColumnDef="release_date">
+                <th math-header-cell *matHeaderCellDef> Nome</th>
+                <td mat-cell *matCellDef="let element"> {{element.release_date}}</td>
+            </ng-container>
+        </table>
+    </div>
 </div>
 
 <div *ngIf="showCard" class="movie-card">

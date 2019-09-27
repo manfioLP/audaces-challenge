@@ -19,7 +19,7 @@ export class MovieListComponent implements OnInit {
   constructor(
     private movieService: MovieService
   ) { 
-    this.userLoggedIn = ''
+    this.userLoggedIn = 'test'
     this.showCard = false
   }
 
