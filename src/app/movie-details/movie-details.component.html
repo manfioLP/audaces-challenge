@@ -2,14 +2,28 @@
 <span> {{movie}}
 </span>
 <div *ngIf="movie">
-
-        <button (click)="goBack()">go back</button>
           <h2>{{movie.title | uppercase}} Details</h2>
           <div>
-            <span style="font-weight: bold">T:</span> {{ movie.release_date }}
-            <span style="font-weight: bold">Diretor:</span> {{ movie.director }}
-            <span style="font-weight: bold">Produtor:</span> {{ movie.producer }}
-            <span style="font-weight: bold">Data de lançamento:</span> {{ movie.release_date }}
+              <mat-card>
+                  <mat-card-title>
+                    {{ movie.title }}
+                  </mat-card-title>
+                  <mat-card-subtitle>
+                    Episódio {{ movie.episode_id }}
+                  </mat-card-subtitle>
+                  <mat-card-content>
+                    <span style="font-weight: bold">Data de Estreia:</span> {{ movie.release_date }}
+                  </mat-card-content>
+                  <mat-card-content>
+                    <span style="font-weight: bold">Diretor(es):</span> {{ movie.director }}
+                  </mat-card-content>
+                  <mat-card-content>
+                    <span style="font-weight: bold">Produtor(es):</span> {{ movie.producer }}
+                  </mat-card-content>
+                  <mat-card-content>
+                    <span style="font-weight: bold">Texto de abertura:</span> {{ movie.opening_crawl }}
+                  </mat-card-content>
+                </mat-card>
           </div>
         
 </div>
