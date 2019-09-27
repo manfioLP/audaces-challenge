@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {Movie, MovieList} from '../../model/Movie'
 import { MovieService } from '../movie.service';
+import {MatTableDataSource} from '@angular/material/table'
 
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.css']
+  styleUrls: ['./movie-list.component.css'],
+  providers: [ MovieService, MovieList ]
 })
 export class MovieListComponent implements OnInit {
 
@@ -13,6 +15,8 @@ export class MovieListComponent implements OnInit {
   private password: string
   private userLoggedIn: string
   private showCard: boolean
+  private moviesTable: MatTableDataSource<MovieList[]>
+  private columnsToDisplay: string[] = ['title', 'director', 'producer', 'release_date']
   
   selectedMovie: Movie
   movies: MovieList[]
@@ -35,7 +39,7 @@ export class MovieListComponent implements OnInit {
           return 0
         }
       })
-      this.movies = unsortedMovies})
+      this.moviesTable = new MatTableDataSource(unsortedMovies)})
   }
 
   ngOnInit() {

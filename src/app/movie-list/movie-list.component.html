@@ -1,22 +1,11 @@
 <div>
-    <h2>My Movies</h2>
-    <ul>
-        <li *ngFor="let movie of movies">
-                <a routerLink="/detail/{{movie.episode_id}}">
-                    <span class="badge">{{movie.title}} - {{movie.director}}</span>
-                </a>
-        </li>
-    </ul>
-</div>
-
-<div>
     <!-- TODO: add loading -->
-    <div *ngIf="userLoggedIn && movieList">
+    <div>
         <!--TODO: addfilters -->
 
         <!--TODO: add new movie -->
 
-        <table mat-table [dataSource]="movieList">
+        <table mat-table [dataSource]="moviesTable">
             
             <ng-container matColumnDef="title">
                 <th math-header-cell *matHeaderCellDef> Nome</th>
@@ -24,19 +13,22 @@
             </ng-container>
             
             <ng-container matColumnDef="producer">
-                <th math-header-cell *matHeaderCellDef> Nome</th>
+                <th math-header-cell *matHeaderCellDef> Produtor</th>
                 <td mat-cell *matCellDef="let element"> {{element.producer}}</td>
             </ng-container>
             
             <ng-container matColumnDef="director">
-                <th math-header-cell *matHeaderCellDef> Nome</th>
+                <th math-header-cell *matHeaderCellDef> Diretor</th>
                 <td mat-cell *matCellDef="let element"> {{element.director}}</td>
             </ng-container>
             
             <ng-container matColumnDef="release_date">
-                <th math-header-cell *matHeaderCellDef> Nome</th>
+                <th math-header-cell *matHeaderCellDef> Data de Estreia</th>
                 <td mat-cell *matCellDef="let element"> {{element.release_date}}</td>
             </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay" (click)="rowClick(myRowData)"></tr>
         </table>
     </div>
 </div>
