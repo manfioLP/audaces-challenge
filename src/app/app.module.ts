@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatTableModule } from '@angular/material/table';
 
+import { NgxLoadingModule } from 'ngx-loading';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +24,7 @@ import { MatTableModule } from '@angular/material/table';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTableModule,
+    NgxLoadingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

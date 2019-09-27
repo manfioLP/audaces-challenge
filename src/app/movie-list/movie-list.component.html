@@ -1,5 +1,6 @@
 <div>
-    <!-- TODO: add loading -->
+    <!-- TODO: fix loading -->
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
     <div>
         <!--TODO: addfilters -->
 
@@ -33,6 +34,7 @@
     </div>
 </div>
 
-<div *ngIf="showCard" class="movie-card">
-
-</div>
+<app-movie-details 
+    *ngIf="selectedMovie"
+    [movie]="selectedMovie">
+</app-movie-details>

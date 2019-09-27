@@ -11,6 +11,7 @@ import {MatTableDataSource} from '@angular/material/table'
 })
 export class MovieListComponent implements OnInit {
 
+  private show: boolean
   private login: string
   private password: string
   private userLoggedIn: string
@@ -18,11 +19,12 @@ export class MovieListComponent implements OnInit {
   private moviesTable: MatTableDataSource<MovieList[]>
   private columnsToDisplay: string[] = ['title', 'director', 'producer', 'release_date']
   
-  selectedMovie: Movie
+  selectedMovie: MovieList
   movies: MovieList[]
   constructor(
     private movieService: MovieService
-  ) { 
+  ) {
+    this.show = true
     this.userLoggedIn = 'test'
     this.showCard = false
   }
@@ -42,8 +44,13 @@ export class MovieListComponent implements OnInit {
       this.moviesTable = new MatTableDataSource(unsortedMovies)})
   }
 
+  rowClick(movie: MovieList) {
+    this.selectedMovie = movie
+  }
+
   ngOnInit() {
     this.getMovies()
+    //this.show = false
   }
 
 }
