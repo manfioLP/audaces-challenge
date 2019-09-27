@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card'
 
 import { NgxLoadingModule } from 'ngx-loading';
 
@@ -25,6 +26,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     BrowserAnimationsModule,
     MatTableModule,
     NgxLoadingModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
