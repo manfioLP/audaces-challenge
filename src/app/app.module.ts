@@ -12,14 +12,17 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 import { NgxLoadingModule } from 'ngx-loading';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    LandingComponent,
   ],
   imports: [
     HttpClientModule,
@@ -31,6 +34,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

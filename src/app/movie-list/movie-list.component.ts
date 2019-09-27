@@ -12,8 +12,6 @@ import {MatTableDataSource} from '@angular/material/table'
 export class MovieListComponent implements OnInit {
 
   private show: boolean
-  private login: string
-  private password: string
   private userLoggedIn: string
   private showCard: boolean
   private moviesTable: MatTableDataSource<MovieList[]>
@@ -52,8 +50,12 @@ export class MovieListComponent implements OnInit {
     this.moviesTable.filter = filter.trim()
   }
 
+  getLoggedInUser() {
+    this.userLoggedIn = history.state.data
+  }
   ngOnInit() {
     this.getMovies()
+    this.getLoggedInUser()
     //this.show = false
   }
 
