@@ -1,0 +1,10 @@
+<form class="example-form">
+    <mat-form-field class="input">
+      <input [(ngModel)]="login" matInput placeholder="Login" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  
+    <mat-form-field class="input">
+      <input [(ngModel)]="password" type="password" matInput placeholder="Password" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    <button (click)="onLogin()">Login</button>
+</form>
