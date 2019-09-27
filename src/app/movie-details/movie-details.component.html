@@ -1,0 +1,15 @@
+
+<span> {{movie}}
+</span>
+<div *ngIf="movie">
+
+        <button (click)="goBack()">go back</button>
+          <h2>{{movie.title | uppercase}} Details</h2>
+          <div>
+            <span style="font-weight: bold">T:</span> {{ movie.release_date }}
+            <span style="font-weight: bold">Diretor:</span> {{ movie.director }}
+            <span style="font-weight: bold">Produtor:</span> {{ movie.producer }}
+            <span style="font-weight: bold">Data de lançamento:</span> {{ movie.release_date }}
+          </div>
+        
+</div>

@@ -1,0 +1,15 @@
+<div>
+    <h2>My Movies</h2>
+    <ul>
+        <li *ngFor="let movie of movies"
+            (click)="onSelect(movie)" [class.selected]="movie === selectedMovie">
+                <a routerLink="/detail/{{movie.episode_id}}">
+                    <span class="badge">{{movie.title}} - {{movie.director}}</span>
+                </a>
+        </li>
+    </ul>
+</div>
+
+<div *ngIf="showCard" class="movie-card">
+
+</div>

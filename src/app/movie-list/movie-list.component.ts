@@ -15,7 +15,7 @@ export class MovieListComponent implements OnInit {
   private showCard: boolean
   
   selectedMovie: Movie
-  movies: Movie[]
+  movies: MovieList[]
   constructor(
     private movieService: MovieService
   ) { 
@@ -36,13 +36,10 @@ export class MovieListComponent implements OnInit {
         }
       })
       this.movies = unsortedMovies})
-    // this.movieService.getMovies()
-    //   .subscribe(movies => this.movies = movies)
   }
 
   ngOnInit() {
-    this.getMovies
-    // this.movies = [ {title: 'aubapikabaita', director: 'joao', episode: 7, opening_crawl: ''}, {title: 'volta', director: 'poldo', episode: 8, opening_crawl: 'sdg'}  ]
+    this.getMovies()
   }
 
 }

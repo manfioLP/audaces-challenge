@@ -14,32 +14,41 @@ export class MovieService {
   private moviesUrl = 'https://swapi.co/api';  // URL to web api
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
   };
 
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient) { 
+    }
   
   
 
-  getMovieList(): Observable<any> {
+  getMovies(): Observable<any> {
     return this.http.get<Movie[]>(`${this.moviesUrl}/films`)
       .pipe(
-        tap(res => {}),
-        catchError(this.handleError<Movie[]>('getMovies', [])))
+        tap(res => {}))
   }
 
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
-      console.error(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
+  getMovie(id: number): Observable<any> {
+    let episode_id = this.getEpisodeId(id)
+    
+    return this.http.get<Movie[]>(`${this.moviesUrl}/films/${episode_id}`)
+      .pipe(
+        tap(res => {})
+      )
   }
+
+  private getEpisodeId(id: number) {
+    switch (id) {
+      case 1: return 4;
+      case 2: return 5;
+      case 3: return 6;
+      case 4: return 1;
+      case 5: return 2;
+      case 6: return 3;
+      default:
+        return id
+    }
+  }
+
 }
