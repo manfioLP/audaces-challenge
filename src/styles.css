@@ -27,3 +27,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .pad-bottom {
     padding-bottom: 15px;
   }
+
+  .pad-top {
+    padding-top: 10px;
+}
+
+  .movie-card {
+  margin: 20px;
+  margin-top: 150px;
+  width: 500px;
+}
