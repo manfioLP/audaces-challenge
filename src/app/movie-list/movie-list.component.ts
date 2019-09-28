@@ -15,9 +15,9 @@ export class MovieListComponent implements OnInit {
   private userLoggedIn: string
   private moviesTable: MatTableDataSource<MovieList[]>
   private columnsToDisplay: string[] = ['title', 'director', 'producer', 'release_date']
-  
   selectedMovie: MovieList
   movies: MovieList[]
+
   @Input() public displayMovieForm: boolean
   constructor(
     private movieService: MovieService
@@ -64,8 +64,8 @@ export class MovieListComponent implements OnInit {
     this.userLoggedIn = history.state.data
   }
 
-  receiveMessage($event) {
-    this.displayMovieForm = $event
+  closeMovieForm() {
+    this.displayMovieForm = false
   }
 
   ngOnInit() {
