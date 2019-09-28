@@ -1,10 +1,17 @@
-<form class="example-form">
-    <mat-form-field class="input">
-      <input [(ngModel)]="login" matInput placeholder="Login" [ngModelOptions]="{standalone: true}">
-    </mat-form-field>
-  
-    <mat-form-field class="input">
-      <input [(ngModel)]="password" type="password" matInput placeholder="Password" [ngModelOptions]="{standalone: true}">
-    </mat-form-field>
-    <button (click)="onLogin()">Login</button>
-</form>
+<div class="example-form">
+    <form class="block">
+        <h3 class="centered title">Controle de Acesso</h3>
+        <hr>
+          <mat-form-field class="input pad-left centered">
+            <input [(ngModel)]="login" matInput placeholder="Login" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        <br>
+          <mat-form-field class="input pad-left">
+            <input [(ngModel)]="password" type="password" matInput placeholder="Password" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          <br>
+      </form>
+      <div class="pad-left pad-bottom">
+          <button class ="right" (click)="onLogin()">Login</button>
+      </div>
+</div>
