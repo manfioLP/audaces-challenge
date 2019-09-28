@@ -2,3 +2,28 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.flex {
+    display: flex;
+}
+
+  .title {
+    padding-top: 20px;
+  }
+
+  .centered {
+    text-align: center
+  }
+
+  .align-right {
+    text-align: right;
+    align-content: flex-end;
+  }
+
+  .pad-left {
+    padding-left: 30px;
+  }
+
+  .pad-bottom {
+    padding-bottom: 15px;
+  }
