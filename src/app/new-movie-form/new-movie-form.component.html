@@ -1,4 +1,4 @@
-<div>
+<div class="movie-card">
     <mat-card>
       <mat-card-title>
         Adicionar filme
@@ -7,7 +7,6 @@
         <mat-form-field>
           <input matInput placeholder="Título" [(ngModel)]="title" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
-
         <mat-form-field>
           <input matInput placeholder="Episódio" type="number" min="8" [(ngModel)]="episode_id" [ngModelOptions]="{standalone: true}">
         </mat-form-field>
@@ -23,7 +22,7 @@
         <mat-form-field>
             <textarea matInput placeholder="Texto de abertura" [(ngModel)]="opening_crawl" [ngModelOptions]="{standalone: true}"></textarea>
         </mat-form-field>
-        <mat-card-actions style="text-align: end">
+        <mat-card-actions class="centered">
           <button mat-raised-button (click)="cancelAddMovie()">CANCELAR</button>
           <button mat-raised-button (click)="addMovie()">ADICIONAR</button>
         </mat-card-actions>
