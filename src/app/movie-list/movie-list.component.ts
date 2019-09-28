@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {Movie, MovieList} from '../../model/Movie'
 import { MovieService } from '../movie.service';
 import {MatTableDataSource} from '@angular/material/table'
@@ -13,18 +13,18 @@ export class MovieListComponent implements OnInit {
 
   private show: boolean
   private userLoggedIn: string
-  private showCard: boolean
   private moviesTable: MatTableDataSource<MovieList[]>
   private columnsToDisplay: string[] = ['title', 'director', 'producer', 'release_date']
   
   selectedMovie: MovieList
   movies: MovieList[]
+  @Input() public displayMovieForm: boolean
   constructor(
     private movieService: MovieService
   ) {
+    this.displayMovieForm = false
     this.show = true
     this.userLoggedIn = 'test'
-    this.showCard = false
   }
 
   getMovies() {
@@ -42,8 +42,18 @@ export class MovieListComponent implements OnInit {
       this.moviesTable = new MatTableDataSource(unsortedMovies)})
   }
 
+  openMovieForm(){
+    this.displayMovieForm = true
+    this.selectedMovie = null
+  }
+
   rowClick(movie: MovieList) {
-    this.selectedMovie = movie
+    if (!this.selectedMovie) {
+      this.selectedMovie = movie
+    } else {
+      this.selectedMovie = this.selectedMovie.title === movie.title ? null : movie
+    }
+    this.displayMovieForm = false
   }
 
   filterMovie(filter: string) {
@@ -53,10 +63,14 @@ export class MovieListComponent implements OnInit {
   getLoggedInUser() {
     this.userLoggedIn = history.state.data
   }
+
+  receiveMessage($event) {
+    this.displayMovieForm = $event
+  }
+
   ngOnInit() {
     this.getMovies()
     this.getLoggedInUser()
-    //this.show = false
   }
 
 }

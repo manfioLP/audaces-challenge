@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 
 import { NgxLoadingModule } from 'ngx-loading';
 import { LandingComponent } from './landing/landing.component';
+import { NewMovieFormComponent } from './new-movie-form/new-movie-form.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LandingComponent } from './landing/landing.component';
     MovieListComponent,
     MovieDetailsComponent,
     LandingComponent,
+    NewMovieFormComponent,
   ],
   imports: [
     HttpClientModule,

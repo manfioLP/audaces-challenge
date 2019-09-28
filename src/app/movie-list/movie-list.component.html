@@ -3,14 +3,11 @@
     <!-- TODO: fix loading -->
     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
     <div>
-        <!--TODO: addfilters -->
         <div>
             <mat-form-field>
                 <input matInput (keyup)="filterMovie($event.target.value)" placeholder="Buscar">
             </mat-form-field>
         </div>
-
-        <!--TODO: add new movie -->
 
         <table mat-table [dataSource]="moviesTable">
             
@@ -38,7 +35,14 @@
             <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay" (click)="rowClick(myRowData)"></tr>
         </table>
     </div>
+    <button mat-raised-button (click)="openMovieForm()">ADICIONAR FILME</button>
 </div>
+
+<app-new-movie-form 
+    [(ngModel)]="displayMovieForm"
+    *ngIf="displayMovieForm"
+    name="displayMovieForm" ngDefaultControl>
+</app-new-movie-form>
 
 <app-movie-details 
     *ngIf="selectedMovie"
